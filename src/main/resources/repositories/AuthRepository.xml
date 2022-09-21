@@ -2,4 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.session.auth.repository.AuthRepository">
 
+    <select id="getUser" parameterType="LoginDto" resultType="User">
+        SELECT member_no
+             , user_id
+             , password
+             , reg_dt
+             , upd_dt
+        FROM tb_member
+        WHERE 1=1
+          AND user_id = #{userId}
+    </select>
 </mapper>
