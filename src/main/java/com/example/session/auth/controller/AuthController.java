@@ -18,9 +18,9 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public User login(LoginDto dto, HttpServletRequest request) {
+    public User login(LoginDto loginDto, HttpServletRequest request) {
 
-        User user = authService.getUser(dto);
+        User user = authService.getUser(loginDto);
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
 

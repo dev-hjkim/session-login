@@ -13,7 +13,7 @@ public class AuthServiceImpl implements AuthService {
     private final AuthRepository authRepository;
 
     @Override
-    public User getUser(LoginDto dto) {
-        return authRepository.getUser(dto);
+    public User getUser(LoginDto loginDto) {
+        return authRepository.getUser(loginDto);
     }
 }

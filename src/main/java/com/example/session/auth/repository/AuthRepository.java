@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface AuthRepository {
-    User getUser(LoginDto dto);
+    User getUser(LoginDto loginDto);
 }
