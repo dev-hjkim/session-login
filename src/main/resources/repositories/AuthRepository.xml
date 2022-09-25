@@ -10,6 +10,6 @@
              , upd_dt
         FROM tb_member
         WHERE 1=1
-          AND user_id = #{userId}
+          AND user_id = #{id}
     </select>
 </mapper>

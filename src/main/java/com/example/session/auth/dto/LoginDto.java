@@ -1,8 +1,8 @@
 package com.example.session.auth.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginDto {

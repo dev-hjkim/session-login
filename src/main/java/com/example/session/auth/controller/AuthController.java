@@ -5,6 +5,7 @@ import com.example.session.auth.model.User;
 import com.example.session.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,8 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public User login(LoginDto loginDto, HttpServletRequest request) {
+    public User login(@RequestBody LoginDto loginDto,
+                      HttpServletRequest request) {
 
         User user = authService.getUser(loginDto);
         HttpSession session = request.getSession();
