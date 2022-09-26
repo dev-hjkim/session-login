@@ -1,5 +1,6 @@
 package com.example.session.post.controller;
 
+import com.example.session.aop.LoginCheck;
 import com.example.session.auth.model.User;
 import com.example.session.post.model.Post;
 import com.example.session.post.service.PostService;
@@ -18,6 +19,7 @@ import java.util.List;
 public class PostController {
     private final PostService postService;
 
+    @LoginCheck
     @GetMapping("/lists")
     public List<Post> getPosts(HttpServletRequest request) {
         HttpSession session = request.getSession();
