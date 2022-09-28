@@ -1,10 +1,14 @@
 package com.example.session.common.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.http.HttpStatus;
 
+@ToString
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Result {
     private ResultType resultType;
 
@@ -26,5 +30,17 @@ public class Result {
 
     public HttpStatus getStatus() {
         return this.resultType.getStatus();
+    }
+
+    public String getCode() {
+        return this.resultType.getCode();
+    }
+
+    public String getMessage() {
+        return this.resultType.getMessage();
+    }
+
+    public Object getData() {
+        return this.data;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.session.post.controller;
 
 import com.example.session.aop.LoginCheck;
+import com.example.session.aop.UserParam;
 import com.example.session.auth.model.User;
 import com.example.session.post.model.Post;
 import com.example.session.post.service.PostService;
@@ -9,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -21,9 +20,7 @@ public class PostController {
 
     @LoginCheck
     @GetMapping("/lists")
-    public List<Post> getPosts(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
+    public List<Post> getPosts(@UserParam User user) {
         return postService.getPosts(user.getMemberNo());
     }
 }

@@ -3,6 +3,7 @@ package com.example.session.advice;
 
 import com.example.session.common.dto.ExceptionResult;
 import com.example.session.common.dto.ResultType;
+import com.example.session.exception.BaseException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -42,5 +43,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({DataIntegrityViolationException.class})
     public ExceptionResult handleDBIntegrityError(DataIntegrityViolationException ex) {
         return new ExceptionResult(ResultType.NOT_ALLOWED_OPERATION);
+    }
+
+    @ExceptionHandler({BaseException.class})
+    public ExceptionResult handleBaseException(BaseException ex) {
+        return new ExceptionResult(ex.getResultType());
     }
 }
